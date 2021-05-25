@@ -93,9 +93,15 @@
 											</h4>
 										</td>
 										<td colspan="3" class="text-right">
-											<a href="<?php echo base_url()."preCheckout" ?>" type="button" class="btn btn-primary btn-rounded">Pagar
-												<i class="fas fa-angle-right right"></i>
-											</a>
+											<?php
+												if ($this->cart->total_items()!=0){
+											?>
+													<a href="<?php echo base_url()."preCheckout" ?>" type="button" class="btn btn-primary btn-rounded">Pagar
+														<i class="fas fa-angle-right right"></i>
+													</a>
+											<?php
+												}
+											?>
 										</td>
 									</tr>
 									<!-- Footer row -->
