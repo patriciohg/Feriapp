@@ -61,7 +61,8 @@ $route['checkout'] = 'CartController/checkout';
 $route['reiniciarCarro'] = 'CartController/reiniciarCarro';
 $route['cart'] = 'CartController';
 //Rutas Vendedor
-$route['login'] = 'Welcome';
+$route['login'] = 'Auth';
+$route['vendedor'] = 'vendedor';
 
 
 $route['404_override'] = '';
