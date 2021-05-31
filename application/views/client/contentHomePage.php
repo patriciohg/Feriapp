@@ -67,7 +67,7 @@
 							<strong>Para unirte haz click aquí.</strong>
 						</p>
 
-						<a href="#" class="btn btn-outline-white btn-lg">Como Abrir Tienda
+						<a href="<?php base_url();?>register/registerTienda" class="btn btn-outline-white btn-lg">Como Abrir Tienda
 							<i class="fas fa-store ml-2"></i>
 						</a>
 					</div>

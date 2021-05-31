@@ -107,7 +107,19 @@ class CartController extends CI_Controller {
 						'id_prod' => $producto['id'],
 						'cantidad' => $producto['qty']
 					);
+
+					$result = $this->productos_model->getProducto($producto['id']);
+					$venta = array(
+						'stock_prod' => ($result['stock_prod'] - $producto['qty']),
+						'cant_ventas' => ($result['cant_ventas'] + $producto['qty'])
+					);
+
+					$this->productos_model->updateProd($producto['id'], $venta);
 					$this->cart_model->setProductoOrden($producto_orden[$j]);	//INSERT A LA TABLA PRODUCTO ORDEN POR CADA PRODUCTO
+<<<<<<< Updated upstream
+=======
+					$this->cart_model->updateProducto($producto['id'],$producto['qty']);
+>>>>>>> Stashed changes
 				}
 				$j++;
 			}
@@ -125,7 +137,7 @@ class CartController extends CI_Controller {
 		);
 		
 		$this->cart->destroy();
-
+		
 		$this->load->view('client/clientHeader');
 		$this->load->view('client/contentBoleta', $data);
 		$this->load->view('client/clientFooter');

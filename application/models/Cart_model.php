@@ -19,6 +19,25 @@ class Cart_model extends CI_Model{
 		return $result;
 	}
 
+<<<<<<< Updated upstream
+=======
+	public function get_cant($id_producto, $cantidad){
+		$this->db->select('stock_prod');
+		$this->db->from($this->productos);
+		$this->db->where('id_prod',$id_producto);
+		$cant = $this->db->get()->row_array()['stock_prod'];
+		$cant=$cant-$cantidad;
+		return $cant;
+
+
+	}
+	public function updateProducto($id_producto, $cantidad){
+		$this->db->where("id_prod",$id_producto);
+		$this->db->set("stock_prod",$this->get_cant($id_producto,$cantidad));
+		$this->db->update("producto");
+	}
+
+>>>>>>> Stashed changes
 	public function setOrdenCompra($orden_compra){
 		$this->db->insert('orden_compra', $orden_compra);
 		$id_orden = $this->db->insert_id();
