@@ -2,8 +2,4 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-<<<<<<< Updated upstream
-RewriteRule ^(.*)$ 161.97.156.218/Feriapp/index.php/$1 [L]
-=======
 RewriteRule ^(.*)$ /feriapp/index.php/$1 [L]
->>>>>>> Stashed changes

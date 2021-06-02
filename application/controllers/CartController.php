@@ -116,10 +116,7 @@ class CartController extends CI_Controller {
 
 					$this->productos_model->updateProd($producto['id'], $venta);
 					$this->cart_model->setProductoOrden($producto_orden[$j]);	//INSERT A LA TABLA PRODUCTO ORDEN POR CADA PRODUCTO
-<<<<<<< Updated upstream
-=======
 					$this->cart_model->updateProducto($producto['id'],$producto['qty']);
->>>>>>> Stashed changes
 				}
 				$j++;
 			}

@@ -61,15 +61,10 @@ $route['checkout'] = 'CartController/checkout';
 $route['reiniciarCarro'] = 'CartController/reiniciarCarro';
 $route['cart'] = 'CartController';
 //Rutas Vendedor
-<<<<<<< Updated upstream
-$route['login'] = 'Welcome';
-
-=======
 $route['login'] = 'Auth';
 $route['vendedor'] = 'index';
 $route['vendedor/Productos'] = 'Productos';
 $route['vendedor/Pedidos'] = 'Pedidos';
->>>>>>> Stashed changes
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
