@@ -30,7 +30,7 @@ class Cart_model extends CI_Model{
 
 	}
 	public function updateProducto($id_producto, $cantidad){
-		$this->db->where("id_prod",$id_producto);
+		$this->db->where("id_prod", $id_producto);
 		$this->db->set("stock_prod",$this->get_cant($id_producto,$cantidad));
 		$this->db->update("producto");
 	}

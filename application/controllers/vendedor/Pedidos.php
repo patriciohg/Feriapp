@@ -19,7 +19,6 @@ class Pedidos extends CI_Controller {
         $res = $this->User_model->getTienda($this->session->userdata("rut_usuario"));
         $data = array(
             'pedidos' => $this->Ventas_model->getOrdenes($res->id_tienda)
-
         );
 		$datatop = array(
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
@@ -48,7 +47,18 @@ class Pedidos extends CI_Controller {
 
     }
 
-
-
+	public function delete($id_orden){
+		$estado = array(
+			'estado' => "0"
+		);
+		$res = $this->Ventas_model->updateOrden($id_orden,$estado);
+		if($res){
+            $this->session->set_flashdata("pedido-success","Se ha cancelado el pedido con éxito.");
+			redirect(base_url()."vendedor/pedidos");
+        }else{
+            $this->session->set_flashdata("pedido-error","Error al actualizar el pedido.");
+            redirect(base_url()."vendedor/pedidos");
+        }
+	}
 
 }

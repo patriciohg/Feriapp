@@ -145,14 +145,14 @@ class Productos extends CI_Controller {
 		);
 		$res = $this->Productos_model->updateProd($id_prod,$prod);
 		if($res){
-            $this->session->set_flashdata("producto-success","Se ha guardado con exito el cambio en el producto");
+            $this->session->set_flashdata("producto-success","Se ha eliminado el producto con éxito.");
 			redirect(base_url()."vendedor/productos");
         }else{
             $this->session->set_flashdata("producto-error","error al actualizar el producto.");
             redirect(base_url()."vendedor/productos");
         }
-
 	}
+
 	public function oferta($id_prod){
 		$data = array(
 			'producto' => $this->Productos_model->getProductoById($id_prod),

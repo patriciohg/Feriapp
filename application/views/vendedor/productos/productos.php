@@ -9,15 +9,15 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary"><?php $cantidad_productos ?> Productos</h6>
         <?php if($this->session->flashdata("producto-error")):?>
-                        <div class="alert alert-danger">
-                            <p><?php echo $this->session->flashdata("producto-error")?></p>
-                        </div>
-                    <?php endif; ?>
-                    <?php if($this->session->flashdata("producto-success")):?>
-                        <div class="alert alert-success">
-                            <p><?php echo $this->session->flashdata("producto-success")?></p>
-                        </div>
-                    <?php endif; ?>
+			<div class="alert alert-danger">
+				<p><?php echo $this->session->flashdata("producto-error")?></p>
+			</div>
+		<?php endif; ?>
+		<?php if($this->session->flashdata("producto-success")):?>
+			<div class="alert alert-success">
+				<p><?php echo $this->session->flashdata("producto-success")?></p>
+			</div>
+		<?php endif; ?>
         <a href="<?php echo base_url();?>vendedor/productos/add" class="btn btn-primary btn-icon-split">
         
             <span class="icon text-white-50">

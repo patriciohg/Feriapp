@@ -9,6 +9,12 @@ class Ventas_model extends CI_Model{
         $query = $this->db->get('orden_compra');        
         return $query->result();
     }
+
+	function updateOrden($id,$estado){
+    	$this->db->where('id_orden',$id);
+     	return $this->db->update('orden_compra',$estado);
+	}
+
     public function getProductosOrden($id_orden){
 
         $query = $this->db->join('producto', 'producto_orden.id_prod = producto.id_prod');
