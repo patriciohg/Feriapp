@@ -10,7 +10,6 @@ class Auth extends CI_Controller {
 
     }
 
-
 	public function index()
 	{
         if ($this->session->userdata("login")) {
@@ -20,6 +19,7 @@ class Auth extends CI_Controller {
 			$this->load->view('login');
 		}
     }
+
     public function login(){
         $username = $this->input->post("email");
         $password = $this->input->post("password");
@@ -45,6 +45,7 @@ class Auth extends CI_Controller {
 			}
 		}
 	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url()."auth");
