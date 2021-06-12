@@ -31,7 +31,7 @@
                         <th>Fecha compra</th>
                         <th>Total</th>
                         <th>Ver detalle</th>
-                        <th>Eliminar</th>     
+                        <th>Cambiar Estado</th>     
                     </tr>
                 </thead>
                 <tfoot>
@@ -43,7 +43,7 @@
                         <th>Fecha compra</th>
                         <th>Total</th>
                         <th>Ver detalle</th>
-                        <th>Eliminar</th>                      
+                        <th>Cambiar Estado</th>                      
                     </tr>
                 </tfoot>
                 <tbody>
@@ -73,7 +73,7 @@
 						</td>
                         <td><?php echo $pedido->nombre_courier?></td>
                         <td><?php echo $pedido->fecha_compra?></td>
-                        <td><?php echo $pedido->total?></td>
+                        <td><?php echo '$'. $pedido->total?></td>
                         <td><a href="<?php echo base_url();?>vendedor/pedidos/ver/<?php echo $pedido->id_orden?>" class="btn btn-primary btn-circle">
                                         <i class="fas  fa-eye "></i>
                                     </a>  </td>
