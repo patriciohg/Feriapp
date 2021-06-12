@@ -38,10 +38,10 @@ class Register extends CI_Controller {
         $res = $this->User_model->crear_usuario($data_usuario,$data_direccionUsuario);
         if(!$res){
             $this->session->set_flashdata("success","Se ha registrado con exito al nuevo usuario");
-			redirect(base_url()."register");
+			redirect(base_url()."vendedor");
         }else{
             $this->session->set_flashdata("error","error al crear el nuevo usuario.");
-            redirect(base_url()."register");
+            redirect(base_url()."vendedor");
         }
     }
     public function registerTienda(){
@@ -78,17 +78,17 @@ class Register extends CI_Controller {
         );
         $res = $this->User_model->crear_tienda($data_usuario,$data_direccionUsuario,$data_tienda);
         if(!$res){
-            $this->session->set_flashdata("success","Se ha registrado con exito al nuevo usuario <a href='".base_url() ."auth'>Ingresa ya!</a>");
+            $this->session->set_flashdata("success","Se ha registrado con exito su cuenta.");
             $id_tienda = $this->User_model->getTienda($data_tienda->rut_usuario)->id_tienda;  
             $path = getcwd();
             $micarpeta =$path.'/assets/img/tiendas/'.$id_tienda;
             if (!file_exists($micarpeta)) {
                 mkdir($micarpeta, 0777, true);
             }
-			redirect(base_url()."register");
+			redirect(base_url()."vendedor");
         }else{
-            $this->session->set_flashdata("error","error al crear el nuevo usuario.");
-            redirect(base_url()."register");
+            $this->session->set_flashdata("error","Error al crear su usuario.");
+            redirect(base_url()."vendedor");
         }
 
         
