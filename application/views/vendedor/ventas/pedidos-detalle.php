@@ -2,12 +2,20 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Orden de compra N°<?php echo $orden_compra?></h1>
-<p class="mb-4">Detalle del pedido realizado</p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Detalle pedido</h6>
+		<div class="row justify-content-between">
+			<div class="col-2">
+				<h6 class="m-0 font-weight-bold text-primary">Detalles del Pedido</h6>
+			</div>
+			<div class="col-1">
+				<a href="<?php echo base_url();?>vendedor/pedidos" class="btn btn-primary btn-circle justify-content-end">
+					<i class="fas  fa-arrow-left "></i>
+				</a>
+			</div>
+		</div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -15,9 +23,9 @@
                 <thead>
                     <tr>
                         <th>Imagen producto</th>
-                        <th>Categoria</th>
+                        <th>Categoría</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
                         <th>Precio anterior</th>
                         <th>Precio actual</th>
                         <th>Stock</th>
@@ -27,9 +35,9 @@
                 <tfoot>
                     <tr>
                     <th>Imagen producto</th>
-                        <th>Categoria</th>
+                        <th>Categoría</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
                         <th>Precio anterior</th>
                         <th>Precio actual</th>
                         <th>Stock</th>
