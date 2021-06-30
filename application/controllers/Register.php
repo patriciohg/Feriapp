@@ -17,19 +17,22 @@ class Register extends CI_Controller {
 		$this->load->view('register',$data);
     }
     public function register(){
+		
+		$rut_usuario = $this->input->post("rut_usuario");
+
         $data_usuario  = array(
-            'rut_usuario' =>$this->input->post("rut_usuario"),
+            'rut_usuario' => $rut_usuario,
             'nombre_usuario' => $this->input->post("nombre_usuario"),
             'apellido_pat' => $this->input->post("apellido_p"),
             'apellido_mat' => $this->input->post("apellido_m"),
             'email' => $this->input->post("email"),
             'password' => sha1($this->input->post("password")),
             'telefono' => $this->input->post("telefono"),
-            'rol' => 0,//vendedor 1, comprador 0
+            'rol' => 0,//vendedor 1, comprador 0, trabajador 2
         );
         $data_direccionUsuario  = array(
-            'id_direccion' =>null,
-            'rut_usuario' =>$this->input->post("rut_usuario"),
+            'id_direccion' => null,
+            'rut_usuario' => $rut_usuario,
             'id_comuna' => $this->input->post("comuna"),
             'nombre_direccion' => $this->input->post("nombre_direccion"),
             'calle' => $this->input->post("calle"),
@@ -50,7 +53,8 @@ class Register extends CI_Controller {
         );
         $this->load->view('register-tienda',$data);
     }
-    public function register_tienda(){
+    
+	public function register_tienda(){
         $data_usuario  = array(
             'rut_usuario' =>$this->input->post("rut_usuario"),
             'nombre_usuario' => $this->input->post("nombre_usuario"),
@@ -59,7 +63,7 @@ class Register extends CI_Controller {
             'email' => $this->input->post("email"),
             'password' => sha1($this->input->post("password")),
             'telefono' => $this->input->post("telefono"),
-            'rol' => 1,//vendedor 1, comprador 0
+            'rol' => 1,//vendedor 1, comprador 0, trabajador 2
         );
         $data_direccionUsuario  = array(
             'id_direccion' =>null,
