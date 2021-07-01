@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pedidos extends CI_Controller {
+class Empleados extends CI_Controller {
 
     public function __construct(){
 
         parent::__construct();
         $this->load->model("User_model");
-        $this->load->model("Ventas_model");
-		$this->load->model("Empleados_model");
+        $this->load->model("Empleados_model");
 		if($this->session->userdata("rol") == "0"){
 			redirect(base_url()."");
 		}
@@ -17,31 +16,33 @@ class Pedidos extends CI_Controller {
 
 	public function index()
 	{
-		$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
-			if( $rol == '2'){	//SI LAA CUENTA ES DE EMPLEADO
-				$id_tienda = $this->Empleados_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;	//SE OBTIENE LA TIENDA A LA CUAL TRABAJA
-			}else{
-				$id_tienda = $this->User_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;	//SI NO SE INGRESA COMO DUEÑO
-		}
-
+        $res = $this->User_model->getTienda($this->session->userdata("rut_usuario"));
         $data = array(
-            'pedidos' => $this->Ventas_model->getOrdenes($id_tienda)
+            'empleados' => $this->Empleados_model->getEmpleados($res->id_tienda)
         );
-
 		$datatop = array(
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
 		);
-
-		$rol = array (
-			'rol' => $rol
-		);
-
 		$this->load->view('vendedor/assets/header');
-		$this->load->view('vendedor/assets/sidebar', $rol);
-		$this->load->view('vendedor/assets/topbar', $datatop);
-		$this->load->view('vendedor/ventas/pedidos', $data);
+		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/topbar',$datatop);
+		$this->load->view('vendedor/empleados/empleados', $data);
 		$this->load->view('vendedor/assets/footer');
     }
+
+	public function add(){	
+		$datatop = array(
+			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+		);
+		$this->load->view('vendedor/assets/header');
+		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/topbar',$datatop);
+		$this->load->view('vendedor/empleados/add',$data);
+		$this->load->view('vendedor/assets/footer');
+
+	}
+
+/*
     public function ver($id_orden){
 
         $data = array(
@@ -56,10 +57,9 @@ class Pedidos extends CI_Controller {
 		$this->load->view('vendedor/assets/topbar', $datatop);
 		$this->load->view('vendedor/ventas/pedidos-detalle', $data);
 		$this->load->view('vendedor/assets/footer');
-
-
     }
-
+*/
+/*
 	public function delete($id_orden){
 		$estado = array(
 			'estado' => "0"
@@ -73,5 +73,5 @@ class Pedidos extends CI_Controller {
             redirect(base_url()."vendedor/pedidos");
         }
 	}
-
+*/
 }

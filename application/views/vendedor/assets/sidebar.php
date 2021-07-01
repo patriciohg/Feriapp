@@ -34,12 +34,12 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventario"
+                    aria-expanded="true" aria-controls="collapseInventario">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Gestión inventario</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseInventario" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones de inventario:</h6>
                         <a class="collapse-item" href="<?php echo base_url();?>vendedor/productos">Listar productos</a>
@@ -50,13 +50,13 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFinanzas"
+                    aria-expanded="true" aria-controls="collapseFinanzas">
                     <i class="fas fa-fw fa-money-bill-wave"></i>
                     
                     <span>Finanzas</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseFinanzas" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Control de Finanzas:</h6>
@@ -66,6 +66,25 @@
                 </div>
             </li>
 
+			<!-- Nav Item - Utilities Collapse Menu -->
+			<?php if($rol == 1):?>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmpleados"
+                    aria-expanded="true" aria-controls="collapseEmpleados">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    
+                    <span>Empleados</span>
+                </a>
+                <div id="collapseEmpleados" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Control de Empleados:</h6>
+						<a class="collapse-item" href="<?php echo base_url();?>vendedor/empleados/add">Agregar Empleado</a>
+                        <a class="collapse-item" href="<?php echo base_url();?>vendedor/empleados">Empleados Activos</a>
+                    </div>
+                </div>
+            </li>
+			<?php endif;?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

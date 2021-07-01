@@ -11,12 +11,24 @@ class Productos extends CI_Controller {
 		$this->load->model("Productos_model");
 		$this->load->model("Categorias_model");
 		$this->load->model("User_model");
-		//$this->session->userdata("rut_usuario");
+		$this->load->model("Empleados_model");		
 	}
-	public function index(){	
-		$res = $this->User_model->getTienda($this->session->userdata("rut_usuario"));
+	public function index(){
+		
+		$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
+			if( $rol == '2'){	//SI LAA CUENTA ES DE EMPLEADO
+				$id_tienda = $this->Empleados_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;	//SE OBTIENE LA TIENDA A LA CUAL TRABAJA
+			}else{
+				$id_tienda = $this->User_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;	//SI NO SE INGRESA COMO DUEÑO
+		}
+
 		$data = array(
-			'productos'=>$this->Productos_model->getProductos($res->id_tienda)
+			'productos'=>$this->Productos_model->getProductos($id_tienda),
+			'rol' => $rol
+		);
+
+		$rol = array (
+			'rol' => $rol
 		);
 
 		//
@@ -24,7 +36,7 @@ class Productos extends CI_Controller {
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
 		);
 		$this->load->view('vendedor/assets/header');
-		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/sidebar', $rol);
 		$this->load->view('vendedor/assets/topbar',$datatop);
 		$this->load->view('vendedor/productos/productos',$data);
 		$this->load->view('vendedor/assets/footer');
@@ -37,8 +49,14 @@ class Productos extends CI_Controller {
 		$datatop = array(
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
 		);
+
+		$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
+		$rol = array (
+			'rol' => $rol
+		);
+
 		$this->load->view('vendedor/assets/header');
-		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/sidebar', $rol);
 		$this->load->view('vendedor/assets/topbar',$datatop);
 		$this->load->view('vendedor/productos/add',$data);
 		$this->load->view('vendedor/assets/footer');

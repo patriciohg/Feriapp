@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2021 a las 00:18:00
+-- Tiempo de generación: 02-07-2021 a las 01:53:20
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -209,8 +209,8 @@ INSERT INTO `orden_compra` (`id_orden`, `rut_usuario`, `id_tienda`, `id_courier`
 (81, 21381717, 2, 1, '2020-12-13', 32000, 4),
 (82, 21381717, 2, 1, '2020-12-13', 0, 0),
 (83, 21381717, 2, 1, '2020-12-13', 0, 0),
-(84, 21381717, 2, 1, '2020-12-13', 0, 0),
-(85, 21381717, 2, 1, '2020-12-13', 10000, 4),
+(84, 21381717, 2, 1, '2020-12-13', 10000, 0),
+(85, 21381717, 2, 1, '2020-12-13', 10000, 0),
 (86, 21381717, 1, 2, '2020-12-13', 30000, 4),
 (87, 21381717, 1, 2, '2020-12-14', 10000, 4),
 (88, 21381717, 1, 2, '2021-05-04', 10000, 3),
@@ -225,7 +225,9 @@ INSERT INTO `orden_compra` (`id_orden`, `rut_usuario`, `id_tienda`, `id_courier`
 (98, 21381717, 1, 1, '2021-06-02', 5000, 3),
 (99, 21381717, 2, 1, '2021-06-02', 6990, 3),
 (100, 21381717, 2, 1, '2021-06-02', 7990, 3),
-(101, 21381717, 2, 1, '2021-06-02', 7990, 1);
+(101, 21381717, 2, 1, '2021-06-02', 7990, 2),
+(102, 21381717, 2, 1, '2021-06-23', 10000, 1),
+(103, 21381717, 2, 1, '2021-06-23', 7000, 1);
 
 -- --------------------------------------------------------
 
@@ -258,9 +260,9 @@ INSERT INTO `producto` (`id_prod`, `id_tienda`, `id_categ`, `nombre_prod`, `desc
 (4, 1, 1, 'Producto 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 8000, 8000, 22, 1, 0, 1),
 (5, 1, 1, 'Producto 5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 8000, 10000, 31, 10, 1, 1),
 (6, 2, 2, 'Producto 6', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 5000, 6000, 14, 10, 1, 1),
-(7, 2, 2, 'Producto 7', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 7000, 7000, 12, 4, 0, 1),
+(7, 2, 2, 'Producto 7', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 7000, 7000, 11, 5, 0, 1),
 (8, 2, 2, 'Producto 8', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 10000, 15000, 7, 16, 1, 1),
-(9, 2, 2, 'Producto 9', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 10000, 15000, 17, 15, 1, 1),
+(9, 2, 2, 'Producto 9', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa enim, interdum at lectus non, tempus ultricies lacus. Fusce mattis finibus hendrerit. Vestibulum in mi id massa semper semper nec pellentesque neque. In dignissim in ex a auctor molestie.', 10000, 15000, 16, 16, 1, 1),
 (10, 2, 2, 'Peluche Corgi', 'Peluche almohada de Corgi', 6990, 10000, 19, 1, 1, 0),
 (11, 2, 2, 'Peluche Corgi', 'Peluche almohada de Corgi', 7990, 13990, 14, 1, 1, 0),
 (12, 2, 2, 'Peluche Corgi', 'Peluche Almohada de Corgi', 7990, 13990, 14, 1, 1, 0),
@@ -369,7 +371,9 @@ INSERT INTO `producto_orden` (`id_orden`, `id_prod`, `cantidad`) VALUES
 (97, 2, 1),
 (98, 2, 1),
 (100, 11, 1),
-(101, 12, 1);
+(101, 12, 1),
+(102, 9, 1),
+(103, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -434,6 +438,25 @@ INSERT INTO `tienda` (`id_tienda`, `rut_usuario`, `id_comuna`, `nombre_tienda`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `trabajador_tienda`
+--
+
+CREATE TABLE `trabajador_tienda` (
+  `id_tienda` int(5) NOT NULL,
+  `rut_usuario` int(9) NOT NULL,
+  `fecha_ingreso` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `trabajador_tienda`
+--
+
+INSERT INTO `trabajador_tienda` (`id_tienda`, `rut_usuario`, `fecha_ingreso`) VALUES
+(2, 198452353, '2021-06-25');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -461,7 +484,9 @@ INSERT INTO `usuario` (`rut_usuario`, `nombre_usuario`, `apellido_pat`, `apellid
 (21381717, 'Leona', 'Duncan', 'Lewis', 'leonaDuncan@gmail.com', 'ccf0b67a77b3e5dc4b00d652c123486cf3863ba9', '879546213', 0),
 (22227252, 'Sofia', 'Molina', 'Castillo', 'sofiaMolina@gmail.com', 'c22faa5e9cc750cb0d87e546742d4437c6743a3f', '987654321', 1),
 (123123123, 'asd', 'asd', 'asd', 'asd@gmail.com', '2891baceeef1652ee698294da0e71ba78a2a4064', '123123', 1),
-(186431626, 'Pepito', 'Paterno', 'Materno', 'test@test.cl', 'e04820372e7f2ebb2d76987433579219b11c2ba5', '987654', 1);
+(186431626, 'Pepito', 'Paterno', 'Materno', 'test@test.cl', 'e04820372e7f2ebb2d76987433579219b11c2ba5', '987654', 1),
+(198452353, 'Paolo', 'Hernandez', 'Espinoza', 'paoloHernandez@gmail.com', 'a15c31c2e1b7c81cf41dec3974059e730673bb80\r\n\r\n', '879546214', 2),
+(213456785, 'Lia', 'Lister', 'Calderon', 'liaLister@gmail.com', '038b702e0b56c2ec64bce3ed5d77caa7d822f203', '999885652', 0);
 
 -- --------------------------------------------------------
 
@@ -486,7 +511,9 @@ INSERT INTO `usuario_direccion` (`id_direccion`, `rut_usuario`, `id_comuna`, `no
 (1, 21381717, 11, 'Mi casita', 'Calle donde sea #980', 'Condominio sin Nombre, Casa 10'),
 (2, 186431626, 11, '321654', 'Calle Donde Sea', 'No tengo'),
 (3, 17653426, 7, '321', 'Sin nombre', 'Que departamento'),
-(5, 123123123, 10, '123', '123123', '1231231');
+(5, 123123123, 10, '123', '123123', '1231231'),
+(6, 198452353, 10, '521', 'Sin nombre', 'Condominio....'),
+(7, 213456785, 9, '999', 'Calle sin nombre', 'Edificio X');
 
 --
 -- Índices para tablas volcadas
@@ -558,6 +585,14 @@ ALTER TABLE `tienda`
   ADD KEY `id_comuna` (`id_comuna`);
 
 --
+-- Indices de la tabla `trabajador_tienda`
+--
+ALTER TABLE `trabajador_tienda`
+  ADD PRIMARY KEY (`id_tienda`,`rut_usuario`),
+  ADD KEY `id_tienda` (`id_tienda`,`rut_usuario`),
+  ADD KEY `rut_usuario` (`rut_usuario`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -603,7 +638,7 @@ ALTER TABLE `multimedia_producto`
 -- AUTO_INCREMENT de la tabla `orden_compra`
 --
 ALTER TABLE `orden_compra`
-  MODIFY `id_orden` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id_orden` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -627,7 +662,7 @@ ALTER TABLE `tienda`
 -- AUTO_INCREMENT de la tabla `usuario_direccion`
 --
 ALTER TABLE `usuario_direccion`
-  MODIFY `id_direccion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_direccion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
@@ -673,6 +708,13 @@ ALTER TABLE `producto_orden`
 ALTER TABLE `tienda`
   ADD CONSTRAINT `tienda_ibfk_1` FOREIGN KEY (`rut_usuario`) REFERENCES `usuario` (`rut_usuario`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `tienda_ibfk_2` FOREIGN KEY (`id_comuna`) REFERENCES `comuna` (`id_comuna`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `trabajador_tienda`
+--
+ALTER TABLE `trabajador_tienda`
+  ADD CONSTRAINT `trabajador_tienda_ibfk_1` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`),
+  ADD CONSTRAINT `trabajador_tienda_ibfk_2` FOREIGN KEY (`rut_usuario`) REFERENCES `usuario` (`rut_usuario`);
 
 --
 -- Filtros para la tabla `usuario_direccion`

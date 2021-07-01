@@ -41,7 +41,9 @@
                         <th>Ventas</th>
                         <th>Oferta</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>     
+						<?php if($rol == 1):?>
+                        <th>Eliminar</th>
+						<?php endif;?> 
                     </tr>
                 </thead>
                 <tbody>
@@ -59,12 +61,15 @@
                         <td><?php if($producto->oferta ==0) echo "<a href='". base_url().'vendedor/productos/oferta/'.$producto->id_prod."' class='btn btn-success btn-icon-split'><span class='icon text-white-50'><i class='fas fa-dollar-sign'></span></i>Nueva oferta</a>"; else echo "<a href='#' class='btn btn-warning btn-icon-split'><span class='icon text-white-50'><i class='fas fa-dollar-sign'></span></i>Producto en oferta!</a>" ; ?></td>
                         <td><a href="<?php echo base_url();?>vendedor/productos/edit/<?php echo $producto->id_prod?>" class="btn btn-primary btn-circle">
                                         <i class="fas  fa-wrench "></i>
-                                    </a>  </td>
+							</a>
+						</td>
+						<?php if($rol == 1):?>
                         <td>
-                        <a href="<?php echo base_url();?>vendedor/productos/delete/<?php echo $producto->id_prod?>" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+							<a href="<?php echo base_url();?>vendedor/productos/delete/<?php echo $producto->id_prod?>" class="btn btn-danger btn-circle">
+								<i class="fas fa-trash"></i>
+							</a>
                         </td>
+						<?php endif;?>
                     </tr>
                     <?php endforeach;?>
                 <?php endif;?>                    

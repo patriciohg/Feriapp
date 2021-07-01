@@ -6,6 +6,7 @@ class Index extends CI_Controller {
 		parent::__construct();
 		$this->load->model("Ventas_model");
 		$this->load->model("User_model");
+		$this->load->model("Empleados_model");
 		if($this->session->userdata("rol") == "0"){
 			redirect(base_url()."");
 		}
@@ -14,7 +15,13 @@ class Index extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata("login")) {
-			$id_tienda = $this->User_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;
+			$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
+			if( $rol == '2'){	//SI LAA CUENTA ES DE EMPLEADO
+				$id_tienda = $this->Empleados_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;	//SE OBTIENE LA TIENDA A LA CUAL TRABAJA
+			}else{
+				$id_tienda = $this->User_model->getTienda($this->session->userdata("rut_usuario"))->id_tienda;	//SI NO SE INGRESA COMO DUEÑO
+			}
+
 			$path = getcwd();
 			$micarpeta =$path.'/assets/img/tiendas/'.$id_tienda;
 			if (!file_exists($micarpeta)) {
@@ -29,8 +36,15 @@ class Index extends CI_Controller {
 			
 			$total_pedidos = $aprobados + $despachados + $entregados;
 			
+			$usuario = array(
+				'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+			);
+
+			$rol = array (
+				'rol' => $rol
+			);
+
 			$data = array(
-				'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p"),
 				'ganancias' => $this->Ventas_model->getGanancias($id_tienda)[0]->ganancias,
 				'productos' => $this->Ventas_model->getProductosVenta($id_tienda)[0]->total_productos,
 				'pedidos' => $total_pedidos,
@@ -44,8 +58,8 @@ class Index extends CI_Controller {
 			);
 			
 			$this->load->view('vendedor/assets/header');
-			$this->load->view('vendedor/assets/sidebar');
-			$this->load->view('vendedor/assets/topbar',$data);
+			$this->load->view('vendedor/assets/sidebar', $rol);
+			$this->load->view('vendedor/assets/topbar',$usuario);
 			$this->load->view('vendedor/dashboard',$data);
 			$this->load->view('vendedor/assets/footer');
 		}

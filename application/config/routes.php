@@ -65,6 +65,7 @@ $route['login'] = 'Auth';
 $route['vendedor'] = 'index';
 $route['vendedor/Productos'] = 'Productos';
 $route['vendedor/Pedidos'] = 'Pedidos';
+$route['vendedor/Empleados'] = 'Empleados';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

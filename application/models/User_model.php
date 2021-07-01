@@ -7,6 +7,13 @@ class User_model extends CI_Model{
       $query = $this->db->get('usuario');
       return $query->row();    //   Devolvemos al controlador la fila que coincide con la búsqueda. (FALSE en caso que no existir coincidencias)
    }
+
+	function getRolUsuario($rut_usuario){
+		$query = $this->db->select('rol')
+					->where('rut_usuario',$rut_usuario)
+					->get('usuario');
+      return $query->result();
+	}
    function crear_usuario($usuario_nuevo,$direccion){
       $query = $this->db->insert("usuario",$usuario_nuevo);
       if($query){

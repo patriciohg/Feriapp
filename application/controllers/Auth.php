@@ -38,7 +38,7 @@ class Auth extends CI_Controller {
 				'login' => TRUE
 			);
 			$this->session->set_userdata($data);
-			if($res->rol == $this->session->userdata("rol")){
+			if($res->rol == '1' || $res->rol == '2'){
 				redirect(base_url()."vendedor");
 			}else{
 				redirect(base_url()."");
