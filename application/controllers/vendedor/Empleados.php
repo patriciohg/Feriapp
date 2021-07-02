@@ -23,23 +23,81 @@ class Empleados extends CI_Controller {
 		$datatop = array(
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
 		);
+
+		$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
+
+		$rol = array (
+			'rol' => $rol
+		);
 		$this->load->view('vendedor/assets/header');
-		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/sidebar', $rol);
 		$this->load->view('vendedor/assets/topbar',$datatop);
 		$this->load->view('vendedor/empleados/empleados', $data);
 		$this->load->view('vendedor/assets/footer');
     }
 
 	public function add(){	
+
 		$datatop = array(
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
 		);
+
+		$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
+
+		$rol = array (
+			'rol' => $rol
+		);
+		
 		$this->load->view('vendedor/assets/header');
-		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/sidebar', $rol);
 		$this->load->view('vendedor/assets/topbar',$datatop);
-		$this->load->view('vendedor/empleados/add',$data);
+		$this->load->view('vendedor/empleados/add');
 		$this->load->view('vendedor/assets/footer');
 
+	}
+
+	public function store(){
+
+		$res = $this->User_model->getTienda($this->session->userdata("rut_usuario"));
+		$id_tienda = $res->id_tienda;
+		$rut_empleado = $this->input->post("rut_usuario");
+
+		$empleado = array(
+			'rut_usuario'=> $rut_empleado,
+			'id_tienda' => $id_tienda,
+			'fecha_ingreso' => date('y-m-d')	//fecha actual del sistema
+		);
+
+		$empleadoValido = $this->Empleados_model->getRutEmpleado($rut_empleado);
+
+		if($empleadoValido == null){
+			$this->session->set_flashdata("empleado-error","El usuario ingresado no existe. Recuerde que su empleado debe poseer una cuenta en Feriapp.");
+			redirect(base_url()."vendedor/empleados/add");
+		}else{
+			if($empleadoValido->rol == 0){
+				$this->Empleados_model->addEmpleado($empleado);	//se agrega el empleado a la tabla
+				$this->Empleados_model->updateRolEmpleado($rut_empleado, 2);	//se actualiza el rol del usuario
+				$this->session->set_flashdata("empleado-success","El usuario ha sido agregado como su empleado con éxito.");
+				redirect(base_url()."vendedor/empleados/add");
+			}else{
+				$this->session->set_flashdata("empleado-error","El usuario ingresado no se encuentra disponible para contratar.");
+				redirect(base_url()."vendedor/empleados/add");
+			}
+		}
+	}
+
+	public function delete($rut_empleado){
+
+		$this->Empleados_model->updateRolEmpleado($rut_empleado, 0);
+		$delete = $this->Empleados_model->deleteEmpleado($rut_empleado);
+
+		if($delete){
+            $this->session->set_flashdata("empleado-success","Se han quitado los permisos de empleado al usuario con éxito.");
+			redirect(base_url()."vendedor/empleados");
+        }else{
+            $this->session->set_flashdata("empleado-error","Error al quitar los permisos del usuario.");
+            redirect(base_url()."vendedor/empleados");
+        }
 	}
 
 /*
@@ -58,20 +116,5 @@ class Empleados extends CI_Controller {
 		$this->load->view('vendedor/ventas/pedidos-detalle', $data);
 		$this->load->view('vendedor/assets/footer');
     }
-*/
-/*
-	public function delete($id_orden){
-		$estado = array(
-			'estado' => "0"
-		);
-		$res = $this->Ventas_model->updateOrden($id_orden,$estado);
-		if($res){
-            $this->session->set_flashdata("pedido-success","Se ha cancelado el pedido con éxito.");
-			redirect(base_url()."vendedor/pedidos");
-        }else{
-            $this->session->set_flashdata("pedido-error","Error al actualizar el pedido.");
-            redirect(base_url()."vendedor/pedidos");
-        }
-	}
 */
 }

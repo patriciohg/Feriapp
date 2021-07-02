@@ -31,7 +31,7 @@
 							<th>Fecha Inicio Contrato</th>
 							<th>Teléfono</th>
 							<th>Email</th>
-							<th>Acción</th>
+							<th>Despedir</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,9 +46,9 @@
 							<td><?php echo $empleado->telefono?></td>
 							<td><?php echo $empleado->email?></td>
 							<td>
-							<button id="<?php echo $empleado->rut_usuario?>" value="<?php echo $empleado->rut_usuario?>" class="btn btn-primary btn-circle">
-								<i class="fas fa-pencil-alt"></i>
-							</button>
+								<a href="<?php echo base_url();?>vendedor/empleados/delete/<?php echo $empleado->rut_usuario?>" class="btn btn-danger btn-circle">
+									<i class="fas fa-trash"></i>
+								</a>
 							</td>
 						</tr>
 						<?php endforeach;?>
