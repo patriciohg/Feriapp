@@ -98,20 +98,31 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="learfix d-none d-sm-inline-block">
-                Usuario
+								<?php if(strlen($usuario) == 1):?>
+                	Usuario
+								<?php else:?>
+									<?php echo $usuario?>
+								<?php endif;?> 
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?php echo base_url();?>auth" >
-                    <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Iniciar Sesión
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url();?>auth/logout" >
+								<?php if(strlen($usuario) > 1):?>
+									<a class="dropdown-item" href="#" >
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Perfil
+                	</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="<?php echo base_url();?>auth/logout" >
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Salir
-                </a>
+                	</a>
+								<?php else:?>
+									<a class="dropdown-item" href="<?php echo base_url();?>auth" >
+                    <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Iniciar Sesión
+                	</a>
+								<?php endif;?> 
             </div>
           </li>
         </ul>

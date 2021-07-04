@@ -13,7 +13,11 @@ class HomeController extends CI_Controller {
 	{
 		$data['productos'] = $this->productos_model->getRows();
 
-		$this->load->view('client/clientHeader');
+		$usuario = array(
+			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+		);
+
+		$this->load->view('client/clientHeader', $usuario);
 		$this->load->view('client/contentHomepage', $data);
 		$this->load->view('client/clientFooter');
 

@@ -17,8 +17,12 @@ class ProductsController extends CI_Controller {
             'producto' => $producto,
             'productosTienda' => $this->productos_model->getProductosTienda($producto["id_tienda"], $producto["id_prod"])
         );
+
+		$usuario = array(
+			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+		);
 		
-		$this->load->view('client/clientHeader');
+		$this->load->view('client/clientHeader', $usuario);
 		$this->load->view('client/contentProductPage', $data);
 		$this->load->view('client/clientFooter');
 

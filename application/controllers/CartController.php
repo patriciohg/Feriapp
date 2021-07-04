@@ -12,8 +12,12 @@ class CartController extends CI_Controller {
 
 	public function index()
 	{
+
+		$usuario = array(
+			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+		);
 		
-		$this->load->view('client/clientHeader');
+		$this->load->view('client/clientHeader', $usuario);
 		$this->load->view('client/contentCart');
 		$this->load->view('client/clientFooter');
 
@@ -61,7 +65,11 @@ class CartController extends CI_Controller {
 	public function preCheckout(){
 		$data['couriers'] = $this->cart_model->getCouriers();
 
-		$this->load->view('client/clientHeader');
+		$usuario = array(
+			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+		);
+
+		$this->load->view('client/clientHeader', $usuario);
 		$this->load->view('client/checkoutPage', $data);
 		$this->load->view('client/clientFooter');
 	}
@@ -131,10 +139,14 @@ class CartController extends CI_Controller {
 			'montoTotal' => $this->cart->total(),
 			'courier' => $this->cart_model->getCourier($this->input->post('courier'))
 		);
+
+		$usuario = array(
+			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
+		);
 		
 		$this->cart->destroy();
 		
-		$this->load->view('client/clientHeader');
+		$this->load->view('client/clientHeader', $usuario);
 		$this->load->view('client/contentBoleta', $data);
 		$this->load->view('client/clientFooter');
 		//var_dump($data);
