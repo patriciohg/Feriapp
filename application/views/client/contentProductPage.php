@@ -76,15 +76,17 @@
 
 			<!--Grid column-->
 			<div class="col-md-6 text-center">
-
-				<h4 class="my-4 h4">Information de <?php echo $producto["nombre_tienda"]; ?></h4>
-
-				<p><?php echo $producto["desc_tienda"]; ?></p>
+				<h4 class="my-4 h4">
+					<?php echo $producto['nombre_tienda'] ?>
+				</h4>
+				<img src="<?php echo base_url()."assets/img/logosTiendas/".$producto['logo_tienda'] ?>" class="card-img-top" alt="">
+				<h4 class="my-4 h4">
+					<a class="btn btn-primary" href="<?php echo site_url('tienda/'.$producto['id_tienda']); ?>">
+					Haz click aquí y Visita nuestra tienda <?php echo $producto["nombre_tienda"]; ?>
+					</a>
+				</h4>
 				
-			<?php if(!empty($productosTienda)){  ?>
-				<br>
-				
-				<h4 class="my-4 h4">Revisa nuestros productos</h4>
+			
 
 			</div>
 
@@ -93,7 +95,10 @@
 		<!--Section: Products v.3-->
 		<section class="text-center mb-4">
 			<!--Grid row-->
-			
+			<?php if(!empty($productosTienda)){  ?>
+				<hr>
+				<h4 class="my-4 h4">Revisa nuestros productos</h4>
+				
 			<div class="row wow fadeIn">
 				<?php foreach($productosTienda as $row){ ?>
 					<div class="col-lg-3 col-md-6 mb-4">

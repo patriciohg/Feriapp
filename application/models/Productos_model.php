@@ -31,7 +31,7 @@ class Productos_model extends CI_Model{
 	}
 
 	public function getProducto($id_prod){
-		$this->db->select('p.*, c.nombre_categ, t.nombre_tienda, t.desc_tienda, i.arch_multi');
+		$this->db->select('p.*, c.nombre_categ, t.nombre_tienda, t.desc_tienda, i.arch_multi, t.logo_tienda');
 		$this->db->from($this->productos.' as p');
 		$this->db->join($this->categorias.' as c', 'c.id_categ = p.id_categ', 'left');
 		$this->db->join($this->tiendas.' as t', 't.id_tienda = p.id_tienda', 'left');
@@ -52,6 +52,7 @@ class Productos_model extends CI_Model{
 		$this->db->join($this->imagenes.' as i', 'i.id_prod = p.id_prod', 'left');
 		$this->db->where('t.id_tienda', $id_tienda);
 		$this->db->where('p.id_prod !=', $id_prod);
+		$this->db->where('p.estado',"1");
 		$this->db->order_by('nombre_prod', 'asc');
 		$query = $this->db->get();
 		$result = $query->result_array();

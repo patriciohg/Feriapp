@@ -53,6 +53,8 @@ $route['default_controller'] = 'HomeController';
 
 //Rutas Comprador
 $route['producto/(:num)'] = 'ProductsController/producto/$1'; //Nombre Controlador/nombre Metodo/data
+$route['tienda/(:num)'] = 'TiendasController/tienda/$1';
+//$route['perfil/(:num)'] = 'TiendaController/tienda/$1'; //Nombre Controlador/nombre Metodo/data
 
 $route['add/(:num)'] = 'CartController/addCarrito/$1';
 $route['remove/(:any)/(:num)'] = 'CartController/removeCarrito/$1/$2';
