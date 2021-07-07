@@ -51,8 +51,13 @@ class Pedidos extends CI_Controller {
         $datatop = array(
 			'usuario' => $this->session->userdata("nombre")." ". $this->session->userdata("apellido_p")
 		);
+		$rol = $this->User_model->getRolUsuario($this->session->userdata("rut_usuario"))[0]->rol;
+
+		$rol = array (
+			'rol' => $rol
+		);
 		$this->load->view('vendedor/assets/header');
-		$this->load->view('vendedor/assets/sidebar');
+		$this->load->view('vendedor/assets/sidebar', $rol);
 		$this->load->view('vendedor/assets/topbar', $datatop);
 		$this->load->view('vendedor/ventas/pedidos-detalle', $data);
 		$this->load->view('vendedor/assets/footer');
