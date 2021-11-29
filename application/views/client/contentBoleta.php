@@ -1,7 +1,9 @@
 <!--Main layout-->
 <main class="mt-3 pt-4">
 	<div class="container mt-5">
-		<h5 class="h1 font-weight-bold text-center pt-5 pb-5">Gracias por su compra</h5>
+		<h5 class="h1 font-weight-bold text-center pt-5 pb-5">Gracias por su compra
+			<img src="<?php echo site_url('/'); ?>assets/img/imgEzmartBuy/peepoWow.png" width="60" height="60">
+		</h5>
 
 		<!--Grid row-->
 		<div class="row">
@@ -18,9 +20,11 @@
 							<table class="table product-table">
 
 								<!-- Table head -->
-								<thead class="mdb-color lighten-5">
+								<thead class="green lighten-4">
 									<tr>
-										<th></th>
+										<th class="font-weight-bold text-center">
+											<strong>Imagen</strong>
+										</th>
 										<th class="font-weight-bold text-center">
 											<strong>Producto</strong>
 										</th>
@@ -68,7 +72,7 @@
 									<?php endforeach;?>
 									<!-- /.First row -->
 									<!-- Footer row -->
-									<thead class="mdb-color lighten-5">
+									<thead class="green lighten-4">
 										<tr>
 											<th class="font-weight-bold text-center">
 												<strong>Tipo de Despacho</strong>
@@ -94,7 +98,7 @@
 												<?php echo $metodoPago ?>
 											</td>
 											<td colspan=3 class="text-center">
-												<img src="<?php echo base_url() ?>assets/img/imgCourier<?php echo $courier['logo_courier']; ?>" alt="" class="img-fluid z-depth-0 mx-auto d-block">
+												<img src="<?php echo base_url() ?>assets/img/imgCourier<?php echo $courier['logo_courier']; ?>" width="150" height="80" alt="" class="img-fluid z-depth-0 mx-auto d-block">
 											</td>
 											<td></td>
 											<td class="text-center font-weight-bold">
@@ -109,7 +113,7 @@
 								<!-- /.Table body -->
 
 							</table>
-							<a href="#" class="btn btn-primary btn-lg btn-block">Imprimir Boleta <i class="fas fa-print ml-2"></i></a>
+							<a href="#" class="btn btn-success btn-lg btn-block">Imprimir Boleta <i class="fas fa-print ml-2"></i></a>
 						</div>
 						<!-- /.Shopping Cart table -->
 
@@ -122,9 +126,11 @@
 
 		</div>
 		<!--Grid row-->
+		<br>
 		<div class="col-6">
-			<a href="<?php echo site_url('/'); ?>" class="btn btn-success btn-lg btn-block"><i class="fas fa-arrow-left ml-2"></i> Volver a Página Principal</a>
+			<a href="<?php echo site_url('/'); ?>" class="btn btn-info btn-lg btn-block"><i class="fas fa-arrow-left ml-2"></i> Volver a Página Principal</a>
 		</div>
+		<br>
 	</div>
 	
 </main>

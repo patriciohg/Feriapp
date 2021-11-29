@@ -1,7 +1,7 @@
   <!--Footer-->
-  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+  <footer class="page-footer text-center font-small green lighten-1 mt-4 wow fadeIn">
 
-    <hr class="my-4">
+    <br class="my-4">
 
     <!-- Social icons -->
     <div class="pb-4">
@@ -14,15 +14,15 @@
       </a>
 
       <a href="#">
-        <i class="fab fa-youtube mr-3"></i>
+        <i class="fab fa-instagram mr-3"></i>
       </a>
     </div>
     <!-- Social icons -->
 
     <!--Copyright-->
     <div class="footer-copyright py-3">
-      © 2020 Copyright:
-      <a href="#" > Feriapp </a>
+      © 2021 Copyright:
+      <a href="#" > Ezmart Buy </a>
     </div>
     <!--/.Copyright-->
 

@@ -14,7 +14,7 @@
 
 		<!--First slide-->
 		<div class="carousel-item active">
-			<div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%282%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+			<div class="view" style="background-image: url('assets/img/imgEzmartBuy/NavidadPepe.gif'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
 				<!-- Mask & flexbox options-->
 				<div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -22,19 +22,14 @@
 					<!-- Content -->
 					<div class="text-center white-text mx-5 wow fadeIn">
 						<h1 class="mb-4">
-							<strong>Nuevas tiendas se han unido a Feriapp</strong>
+							<strong>Aprovecha las ofertas Pre-Navideñas</strong>
 						</h1>
-
-						<p>
-							<strong>Pequeñas tiendas con diversos productos requieren de tu atención</strong>
-						</p>
-
 						<p class="mb-4 d-none d-md-block">
-							<strong>Para conocer más de estas revisalas aquí.</strong>
+							<strong>No te quedes sin tu regalo para tu ser querido.</strong>
 						</p>
 
-						<a href="#" class="btn btn-outline-white btn-lg">Revisar Tiendas
-							<i class="fas fa-store ml-2"></i>
+						<a href="#" class="btn btn-outline-white btn-lg">Ver Ofertas
+							<i class="fas fa-piggy-bank ml-2"></i>
 						</a>
 					</div>
 					<!-- Content -->
@@ -48,7 +43,7 @@
 
 		<!--Second slide-->
 		<div class="carousel-item">
-			<div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%283%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+			<div class="view" style="background-image: url('assets/img/imgEzmartBuy/FondoCarrusel2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
 				<!-- Mask & flexbox options-->
 				<div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -56,18 +51,14 @@
 					<!-- Content -->
 					<div class="text-center white-text mx-5 wow fadeIn">
 						<h1 class="mb-4">
-							<strong>Quieres ser parte de Feriapp?</strong>
+							<strong>Quieres ser parte de Ezmart Buy?</strong>
 						</h1>
 
 						<p>
-							<strong>Feriapp te ayuda a vender de una manera sencilla y a ver estadísticas de estas</strong>
+							<strong>En Ezmart Buy te ayudamos con tus ventas brindando herramientas para una mejor gestión</strong>
 						</p>
 
-						<p class="mb-4 d-none d-md-block">
-							<strong>Para unirte haz click aquí.</strong>
-						</p>
-
-						<a href="<?php base_url();?>register/registerTienda" class="btn btn-outline-white btn-lg">Como Abrir Tienda
+						<a href="<?php base_url();?>register/registerTienda" class="btn btn-outline-white btn-lg">Haz click aquí para unirte
 							<i class="fas fa-store ml-2"></i>
 						</a>
 					</div>
@@ -82,7 +73,7 @@
 
 		<!--Third slide-->
 		<div class="carousel-item">
-			<div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%285%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+			<div class="view" style="background-image: url('assets/img/imgEzmartBuy/FondoCarrusel3.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
 				<!-- Mask & flexbox options-->
 				<div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -90,14 +81,15 @@
 					<!-- Content -->
 					<div class="text-center white-text mx-5 wow fadeIn">
 						<h1 class="mb-4">
-							<strong>Aprovecha las ofertas de navidad</strong>
+							<strong>Diversas tiendas con productos únicos</strong>
 						</h1>
-						<p class="mb-4 d-none d-md-block">
-							<strong>Revísa las ofertas destacadas.</strong>
+
+						<p>
+							<strong>Encuentra productos nunca antes vistos</strong>
 						</p>
 
-						<a href="#" class="btn btn-outline-white btn-lg">Ofertas
-							<i class="fas fa-piggy-bank ml-2"></i>
+						<a href="#" class="btn btn-outline-white btn-lg">Ver tiendas
+							<i class="fas fa-store ml-2"></i>
 						</a>
 					</div>
 					<!-- Content -->
@@ -131,7 +123,7 @@
 	<div class="container">
 
 		<!--Navbar-->
-		<nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
+		<nav class="navbar navbar-expand-lg navbar-dark mdb-color green lighten-1 mt-3 mb-5">
 
 			<!-- Navbar brand -->
 			<span class="navbar-brand">Categorías:</span>
@@ -153,10 +145,10 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Vestimenta Custom</a>
+						<a class="nav-link" href="#">Peluches</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Peluches</a>
+						<a class="nav-link" href="#">Poleras Unisex</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Tazones</a>
@@ -164,12 +156,12 @@
 
 				</ul>
 				<!-- Links -->
-
 				<form class="form-inline">
 					<div class="md-form my-0">
 						<input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
 					</div>
 				</form>
+				<img src="assets/img/imgEzmartBuy/peepoDetective.png" width="40" height="40">
 			</div>
 			<!-- Collapsible content -->
 
@@ -182,7 +174,7 @@
 			
 			<div class="row wow fadeIn">
 				<?php if(!empty($productos)){ foreach($productos as $row){ ?>
-					<div class="col-lg-3 col-md-6 mb-4">
+					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="card h-100">
 							<div class="view overlay">
 								<img src="<?php echo base_url()."assets/img/imgTiendas".$row["arch_multi"] ?>" class="card-img-top"
@@ -199,10 +191,11 @@
 								<!-- Subtitle -->
 								<h5 class="text pb-2"><strong><?php echo $row["nombre_prod"]; ?></strong></h5>
 								<!-- Text -->
-								<h5 class="font-weight-bold blue-text">
+								<h5 class="font-weight-bold green-text">
 									<strong><?php echo '$ '.$row["precio_prod_act"]; ?></strong>
 									<?php if($row["oferta"] == 1){ ?>
-										<span class="badge green mr-1">Oferta</span>
+										<span class="badge red mr-1">Oferta</span>
+										<img src="<?php echo base_url()."assets/img/imgEzmartBuy/pepeMoney.gif" ?>" width="50" height="50">
 									<?php } ?>
 								</h5>
 
@@ -224,7 +217,7 @@
 
 		<!--Pagination-->
 		<nav class="d-flex justify-content-center wow fadeIn">
-			<ul class="pagination pg-blue">
+			<ul class="pagination pg-green">
 
 				<!--Arrow left-->
 				<li class="page-item disabled">

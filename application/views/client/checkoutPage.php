@@ -3,10 +3,62 @@
 	<div class="container wow fadeIn">
 
 		<!-- Heading -->
-		<h2 class="my-5 h2 text-center">Formulario de Pago</h2>
+		<h2 class="my-5 h2 text-center">Formulario de Pago
+			<img src="<?php echo site_url('/'); ?>assets/img/imgEzmartBuy/peepoRich.gif" width="60" height="60">
+		</h2>
 		
 		<!--Grid row-->
 		<div class="row">
+			<!--Grid column-->
+			<div class="col-md-6 mb-6">
+
+				<!-- Heading -->
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-muted">Tu Carrito</span>
+					<span class="badge badge-success badge-pill"><?php echo $this->cart->total_items(); ?></span>
+				</h4>
+
+				<!-- Cart -->
+				<ul class="list-group mb-3 z-depth-1">
+					<?php foreach ($this->cart->contents() as $items): ?>
+						<li class="list-group-item d-flex justify-content-between lh-condensed">
+							<div class="row align-items-center">
+								<div class="col-4">
+									<img width= "100%" src="<?php echo base_url() ?>assets/img/imgTiendas<?php echo $items['imagen']; ?>" alt="" class="">
+								</div>
+								<div class="col-8">
+									<div class="row align-items-center">
+										<div class="col-4">
+											<h6 class="my-0"><?php echo $items['name']; ?></h6>
+											<small class="text-muted"><?php echo $items['tienda']; ?></small>
+										</div>
+										<div class="col-4">
+											<span><?php echo "$".$items['price']." x".$items['qty']; ?></span>	
+										</div>
+										<div class="col-4">
+											<span class="font-weight-bold"><?php echo "$".($items['qty'] * $items['price']); ?></span>	
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</li>
+					<?php endforeach ?>
+					<li class="list-group-item d-flex justify-content-end">
+						<div class="row mr-4">
+							<div class="col-6">
+								<span>Total:</span>
+							</div>
+							<div class="col-6">
+								<strong class="font-weight-bold"><?php echo "$".$this->cart->total()?></strong>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!-- Cart -->
+
+			</div>
+			<!--Grid column-->
 
 			<!--Grid column-->
 			<div class="col-md-6 mb-6">
@@ -130,7 +182,8 @@
 											<label class="custom-control-label" for="<?php echo $courier["nombre_courier"] ?>"><?php echo $courier["nombre_courier"] ?></label>
 										</div>
 										<div class="col-6">
-											<img src="<?php echo base_url() ?>assets/img/imgCourier<?php echo $courier['logo_courier']; ?>" alt="" class="img-fluid z-depth-0 mx-auto d-block">
+											<img src="<?php echo base_url() ?>assets/img/imgCourier<?php echo $courier['logo_courier']; ?>" width="150" height="80" alt="" class="img-fluid z-depth-0 mx-auto d-block">
+											<br>
 										</div>
 									</div>
 								</div>
@@ -199,65 +252,14 @@
 						</div>
 						<hr class="mb-4">
 						<div class="col-12 d-flex justify-content-end">
-							<button class="btn btn-primary btn-lg btn-block" type="submit" name="checkout">Realizar Pago <i class="fas fa-shopping-cart ml-2"></i></button>
+							<button class="btn btn-success btn-lg btn-block" type="submit" name="checkout">Realizar Pago <i class="fas fa-shopping-cart ml-2"></i></button>
 						</div>
 
 					</form>
 
 				</div>
 				<!--/.Card-->
-
-			</div>
-			<!--Grid column-->
-
-			<!--Grid column-->
-			<div class="col-md-6 mb-6">
-
-				<!-- Heading -->
-				<h4 class="d-flex justify-content-between align-items-center mb-3">
-					<span class="text-muted">Tu Carrito</span>
-					<span class="badge badge-secondary badge-pill"><?php echo $this->cart->total_items(); ?></span>
-				</h4>
-
-				<!-- Cart -->
-				<ul class="list-group mb-3 z-depth-1">
-					<?php foreach ($this->cart->contents() as $items): ?>
-						<li class="list-group-item d-flex justify-content-between lh-condensed">
-							<div class="row align-items-center">
-								<div class="col-4">
-									<img width= "100%" src="<?php echo base_url() ?>assets/img/imgTiendas<?php echo $items['imagen']; ?>" alt="" class="">
-								</div>
-								<div class="col-8">
-									<div class="row align-items-center">
-										<div class="col-4">
-											<h6 class="my-0"><?php echo $items['name']; ?></h6>
-											<small class="text-muted"><?php echo $items['tienda']; ?></small>
-										</div>
-										<div class="col-4">
-											<span><?php echo "$".$items['price']." x".$items['qty']; ?></span>	
-										</div>
-										<div class="col-4">
-											<span class="font-weight-bold"><?php echo "$".($items['qty'] * $items['price']); ?></span>	
-										</div>
-									</div>
-								</div>
-							</div>
-							
-						</li>
-					<?php endforeach ?>
-					<li class="list-group-item d-flex justify-content-end">
-						<div class="row mr-4">
-							<div class="col-6">
-								<span>Total:</span>
-							</div>
-							<div class="col-6">
-								<strong class="font-weight-bold"><?php echo "$".$this->cart->total()?></strong>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<!-- Cart -->
-
+				<br>
 			</div>
 			<!--Grid column-->
 

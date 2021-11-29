@@ -9,60 +9,70 @@
 			<!--Grid column-->
 			<div class="col-md-6 mb-4">
 
+				<!--Content-->
+				<div class="p-3">
+				<div class="card mb-3" >
+					<div class="card-header">
+						<div class="mb-3">
+							<span class="badge purple mr-1"><?php echo $producto["nombre_categ"]; ?></span>
+							<span class="badge green mr-1">Nuevo</span>
+							<?php if($producto["oferta"] == 1){ ?>
+								<span class="badge red mr-1">Oferta</span>
+							<?php } ?>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">
+							<div class="mb-3">
+								<p class="lead font-weight-bold"><?php echo $producto["nombre_prod"]; ?></p>
+							</div>
+						</h5>
+						<?php if($producto["oferta"] == 1){ ?>
+							<h5>
+								<span class="font-weight-bold"><?php echo '$ '.$producto["precio_prod_act"]; ?></span>
+								<img src="<?php echo base_url()."assets/img/imgEzmartBuy/pepeMoney.gif" ?>" width="40" height="40">
+							</h5>
+							<h5>
+								<span class="mr-1 font-weight-bold red-text">
+									<del><?php echo '$ '.$producto["precio_prod_ant"]; ?></del>
+								</span>
+							</h5>
+						<?php }else{ ?>
+							<h5>
+								<span><?php echo '$ '.$producto["precio_prod_act"]; ?></span>
+							</h5>
+						<?php } ?>
+						<hr>
+						<p class="lead font-weight-bold">Descripción:</p>
+
+						<p><?php echo $producto["desc_prod"]; ?></p>
+						<hr>
+						<div class="row p-3">
+							<p class="font-weight-bold" style="margin-right:5px">Ordenes: <?php echo $producto["cant_ventas"]; ?></p>
+							<p class="font-weight-bold">Stock: <?php echo $producto["stock_prod"]; ?></p>
+						</div>
+					</div>
+					<div class="card-footer">
+						<div class="row p-2 justify-content-center">
+							<a class="btn btn-success font-weight-bold btn-rounded" href="<?php echo base_url()."add/".$producto["id_prod"];?>">Agregar al Carrito
+								<i class="fas fa-shopping-cart ml-1"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				</div>
+				<!--Content-->
+
+			</div>
+
+			<!--Grid column-->
+			<div class="col-md-6 mb-4">
+
 				<img src="<?php echo base_url()."assets/img/imgTiendas".$producto["arch_multi"] ?>" class="img-fluid" alt="">
 
 			</div>
 			<!--Grid column-->
 
-			<!--Grid column-->
-			<div class="col-md-6 mb-4">
-
-				<!--Content-->
-				<div class="p-4">
-
-					<div class="mb-3">
-						<span class="badge purple mr-1"><?php echo $producto["nombre_categ"]; ?></span>
-						<span class="badge blue mr-1">Nuevo</span>
-						<?php if($producto["oferta"] == 1){ ?>
-							<span class="badge green mr-1">Oferta</span>
-						<?php } ?>
-					</div>
-					<div class="mb-3">
-						<p class="lead font-weight-bold"><?php echo $producto["nombre_prod"]; ?></p>
-					</div>
-					<?php if($producto["oferta"] == 1){ ?>
-						<h5>
-							<span><?php echo '$ '.$producto["precio_prod_act"]; ?></span>
-						</h5>
-						<h5>
-							<span class="mr-1">
-								<del><?php echo '$ '.$producto["precio_prod_ant"]; ?></del>
-							</span>
-						</h5>
-					<?php }else{ ?>
-						<h5>
-							<span><?php echo '$ '.$producto["precio_prod_act"]; ?></span>
-						</h5>
-					<?php } ?>
-
-					<p class="lead font-weight-bold">Descripción</p>
-
-					<p><?php echo $producto["desc_prod"]; ?></p>
-					<div class="row p-3">
-						<p class="font-weight-bold" style="margin-right:5px">Ordenes: <?php echo $producto["cant_ventas"]; ?></p>
-						<p class="font-weight-bold">Stock: <?php echo $producto["stock_prod"]; ?></p>
-					</div>
-					<div class="row p-2">
-						<a class="btn btn-primary btn-md my-0 p" href="<?php echo base_url()."add/".$producto["id_prod"];?>">Agregar al Carrito
-							<i class="fas fa-shopping-cart ml-1"></i>
-						</a>
-					</div>
-
-				</div>
-				<!--Content-->
-
-			</div>
-			<!--Grid column-->
 			<?php }else{ ?>
 					<p>Producto no encontrados...</p>
 			<?php } ?>
@@ -76,13 +86,13 @@
 
 			<!--Grid column-->
 			<div class="col-md-6 text-center">
-				<h4 class="my-4 h4">
+				<h4 class="my-4 h4 font-weight-bold">
 					<?php echo $producto['nombre_tienda'] ?>
 				</h4>
 				<img src="<?php echo base_url()."assets/img/logosTiendas/".$producto['logo_tienda'] ?>" class="card-img-top" alt="">
 				<h4 class="my-4 h4">
-					<a class="btn btn-primary" href="<?php echo site_url('tienda/'.$producto['id_tienda']); ?>">
-					Haz click aquí y Visita nuestra tienda <?php echo $producto["nombre_tienda"]; ?>
+					<a class="btn btn-success font-weight-bold btn-rounded" href="<?php echo site_url('tienda/'.$producto['id_tienda']); ?>">
+					Haz click aquí para visitar a <?php echo $producto["nombre_tienda"]; ?>
 					</a>
 				</h4>
 				
@@ -97,7 +107,7 @@
 			<!--Grid row-->
 			<?php if(!empty($productosTienda)){  ?>
 				<hr>
-				<h4 class="my-4 h4">Revisa nuestros productos</h4>
+				<h4 class="my-4 h4">Revisa otros productos de la Tienda</h4>
 				
 			<div class="row wow fadeIn">
 				<?php foreach($productosTienda as $row){ ?>
@@ -118,10 +128,10 @@
 								<!-- Subtitle -->
 								<h5 class="text pb-2"><strong><?php echo $row["nombre_prod"]; ?></strong></h5>
 								<!-- Text -->
-								<h5 class="font-weight-bold blue-text">
+								<h5 class="font-weight-bold green-text">
 									<strong><?php echo '$ '.$row["precio_prod_act"]; ?></strong>
 									<?php if($row["oferta"] == 1){ ?>
-										<span class="badge green mr-1">Oferta</span>
+										<span class="badge red mr-1">Oferta</span>
 									<?php } ?>
 								</h5>
 

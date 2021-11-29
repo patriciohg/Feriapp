@@ -54,8 +54,9 @@
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="<?php echo site_url('/'); ?>">
-				<i style="color: Dodgerblue;" class="fas fa-shopping-basket"></i>
-        <strong class="blue-text">Feriapp</strong>
+				<!-- <i style="color: Dodgerblue;" class="fas fa-shopping-basket"></i> -->
+				<img src="<?php echo site_url('/'); ?>assets/img/imgEzmartBuy/EZC.png" width="40" height="40">
+        <strong class="green-text">Ezmart Buy</strong>
       </a>
 
       <!-- Collapse -->
