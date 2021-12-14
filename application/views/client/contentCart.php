@@ -59,7 +59,7 @@
 												<!-- First row -->
 												<tr>
 													<th scope="row">
-														<img src="<?php echo base_url() ?>assets/img/imgTiendas<?php echo $items['imagen']; ?>" alt="" class="img-fluid z-depth-0 mx-auto d-block">
+														<img src="http://localhost:3000/api/products/public/<?php echo $items["imagen"]; ?>" alt="" class="img-fluid z-depth-0 mx-auto d-block">
 													</th>
 													<td>
 														<h5 class="mt-3">

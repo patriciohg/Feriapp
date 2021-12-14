@@ -19,7 +19,7 @@
                 <tbody>
 
                     <tr>
-                        <td> <img src="<?php echo base_url();?>assets/img/ImgTiendas<?php echo $producto->arch_multi;?>" alt="<?php echo $producto->desc_prod;?>" width="150" height="150">   </td>
+                        <td> <img src="<?php echo base_url();?>assets/img/ImgTiendas/<?php echo $producto->arch_multi;?>" alt="<?php echo $producto->desc_prod;?>" width="150" height="150">   </td>
                         <td><?php echo $producto->nombre_categ?></td>
                         <td><?php echo $producto->nombre_prod?></td>
                         <td><?php echo $producto->desc_prod?></td>

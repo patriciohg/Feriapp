@@ -24,7 +24,7 @@
 						<li class="list-group-item d-flex justify-content-between lh-condensed">
 							<div class="row align-items-center">
 								<div class="col-4">
-									<img width= "100%" src="<?php echo base_url() ?>assets/img/imgTiendas<?php echo $items['imagen']; ?>" alt="" class="">
+									<img width= "100%" src="http://localhost:3000/api/products/public/<?php echo $items["imagen"]; ?>" alt="" class="">
 								</div>
 								<div class="col-8">
 									<div class="row align-items-center">

@@ -177,7 +177,7 @@
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="card h-100">
 							<div class="view overlay">
-								<img src="<?php echo base_url()."assets/img/imgTiendas".$row["arch_multi"] ?>" class="card-img-top"
+								<img src="http://localhost:3000/api/products/public/<?php echo $row["arch_multi"]; ?>" class="card-img-top"
 									alt="">
 								<a href="<?php echo site_url('producto/'.$row['id_prod']); ?>">
 									<div class="mask rgba-white-slight"></div>
