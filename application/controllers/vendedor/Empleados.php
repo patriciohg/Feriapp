@@ -71,7 +71,7 @@ class Empleados extends CI_Controller {
 		$empleadoValido = $this->Empleados_model->getRutEmpleado($rut_empleado);
 
 		if($empleadoValido == null){
-			$this->session->set_flashdata("empleado-error","El usuario ingresado no existe. Recuerde que su empleado debe poseer una cuenta en Feriapp.");
+			$this->session->set_flashdata("empleado-error","El usuario ingresado no existe. Recuerde que su empleado debe poseer una cuenta en Ezmart Buy.");
 			redirect(base_url()."vendedor/empleados/add");
 		}else{
 			if($empleadoValido->rol == 0){

@@ -10824,19 +10824,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("../img/feriapp_login.jpg");
+  background: url("../img/ezmartbuy.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("../img/feriapp_registro.jpg");
+  background: url("../img/ezmartbuy_registro.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("../img/feriapp_registro.jpg");
+  background: url("../img/ezmartbuy_registro.jpg");
   background-position: center;
   background-size: cover;
 }

@@ -264,7 +264,7 @@
 					</div>
 					<div class="mt-4 text-center small">
 						<span class="mr-2">
-							<i class="fas fa-circle text-primary"></i> Feriapp
+							<i class="fas fa-circle text-primary"></i> Ezmart Buy
 						</span>
 						<span class="mr-2">
 							<i class="fas fa-circle text-success"></i> Redes Sociales

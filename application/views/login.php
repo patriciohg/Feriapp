@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Feriapp - Login</title>
+    <title>Ezmart Buy - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

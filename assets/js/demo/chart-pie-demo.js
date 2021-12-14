@@ -7,7 +7,7 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Feriapp", "Redes Sociales"],
+    labels: ["Ezmart-Buy", "Redes Sociales"],
     datasets: [{
       data: [55, 30],
       backgroundColor: ['#4e73df', '#1cc88a'],
